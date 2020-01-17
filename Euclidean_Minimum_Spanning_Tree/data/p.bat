@@ -1,0 +1,1 @@
+Delauny.exe && exit
