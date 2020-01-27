@@ -23,11 +23,12 @@ public class AStar {
     if (pq.size() == 0) {
       return;
     }
-
+    
     Square act = pq.peek();
-    System.out.println("Ind: " + act.ind + " value: " + (arr[act.ind] + (int)(abs(fin.x - act.x)/tab.x + abs(fin.y - act.y)/tab.y)));
+    //System.out.println("Ind: " + act.ind + " value: " + (arr[act.ind] + (int)(abs(fin.x - act.x)/tab.x + abs(fin.y - act.y)/tab.y)));
     int ind, padre = act.ind, dp = arr[padre];
     pq.remove();
+    int ant = pq.size();
     float x = act.x + sumx, y = act.y + sumy;
     //Arriba
     float xup = x, yup = y - sumy*2;
@@ -45,6 +46,8 @@ public class AStar {
     float xri = x + sumx * 2, yri = y;
     ind = tab.getSquareInd(xri, yri);
     this.add(dp, padre, ind);
+    if(pq.size() == ant)
+      paso();
   }
 
   public void add(int d, int padre, int ind) {
