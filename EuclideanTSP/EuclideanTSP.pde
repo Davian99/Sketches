@@ -50,7 +50,7 @@ void restart() {
 }
 
 void randomtsp() {
-  np = 30;
+  np = 50;
   puntos = new Point[np];
   for (int i = 0; i < np; ++i) {
     int x = margen + rand.nextInt(ax-margen*2), y = margen*2 + rand.nextInt(ay-margen*3);
@@ -76,20 +76,28 @@ void draw() {
     int b = 0;
     double bb = 1e9;
     Arrays.sort(tsp.cromosomas);
-    for (int i = 0; i < npintar-4; ++i) {
+    for (int i = 0; i < npintar-8; ++i) {
       tsp.cromosomas[i].draw(4.5, i);
       if (tsp.cromosomas[i].fitness < bb) {
         bb = tsp.cromosomas[i].fitness;
         b = i;
       }
     }
+    
     strokeWeight(2);
     stroke(255, 0, 0);
     line(0, my*2, mx*4, my*2);
+    line(0, my, mx*4, my);
     stroke(0);
     strokeWeight(1);
+    line(0, my, mx*4, my);
+    
+    for(int i = init/2; i < init/2+4; ++i){
+      tsp.cromosomas[i].draw(4.5, (npintar-8 + (i - init/2)));
+    }
+    
     for(int i = init-4; i < init; ++i){
-      tsp.cromosomas[i].draw(4.5, (npintar-3 + (i - init + 3)));
+      tsp.cromosomas[i].draw(4.5, (npintar-4 + (i - init + 4)));
     }
     if (tsp.cromosomas[b].fitness < bestfitness) {
       bestfitness = tsp.cromosomas[b].fitness;
