@@ -38,16 +38,16 @@ void draw() {
   //background(250);
   tab.draw();
   if (busqueda) {
-    if(runas)
+    if (runas)
       as.paso();
-    else if(runb)
+    else if (runb)
       b.paso();
     //delay(1000);
   }
   if (finbusqueda) {
-    if(runas)
+    if (runas)
       as.camino();
-    else if(runb)
+    else if (runb)
       b.camino();
   }
   //saveFrame("output/frame_#####.tif");
@@ -70,6 +70,15 @@ void keyPressed() {
     b = new BFS(tab.listaS[tab.inicioAct], tab.listaS[tab.finAct], tab.tam, (float)width / (2*sx), (float)height / (2*sy));
     busqueda = true;
     runb = true;
+  } else if (key == 'r') {
+    int ini = rand.nextInt(tab.tam);
+    while (tab.listaS[ini] == null || tab.listaS[ini].state == 2)
+      ini = rand.nextInt(tab.tam);
+    int fin = rand.nextInt(tab.tam);
+    while (ini == fin || tab.listaS[fin] == null || tab.listaS[fin].state == 2)
+      fin = rand.nextInt(tab.tam);
+    tab.inicioSquare(ini);
+    tab.finSquare(fin);
   }
   if (key == ' ') {
     restart();

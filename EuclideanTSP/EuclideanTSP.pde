@@ -5,6 +5,7 @@ final int init = 10000;
 final int ax = 900, ay = 900, mx = 200, my = 200;
 final int npintar = 12;
 final double pCross = 0.7, pMut = 0.05;
+final int rnp = 70;
 
 boolean running;
 boolean show;
@@ -50,7 +51,7 @@ void restart() {
 }
 
 void randomtsp() {
-  np = 50;
+  np = rnp;
   puntos = new Point[np];
   for (int i = 0; i < np; ++i) {
     int x = margen + rand.nextInt(ax-margen*2), y = margen*2 + rand.nextInt(ay-margen*3);

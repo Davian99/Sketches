@@ -1,10 +1,10 @@
 int[] values;
 
 int i = 0;
-int v = 10;
+int v = 1;
 
 void setup() {
-  size(1000, 500);
+  size(1600, 500);
   values = new int[width/v];
   for (int i = 0; i <  values.length; i++) {
     values[i] = (int)random(height);

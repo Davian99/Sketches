@@ -1,4 +1,4 @@
-import java.util.*; 
+import java.util.*;  //<>//
 import java.io.*;
 PFont f;
 ArrayList<NumberBall> bolas;
@@ -17,7 +17,7 @@ void setup() {
 
 
   bolas = new ArrayList<NumberBall>();
-  for (int i = 0; i < 50; ++i)
+  for (int i = 0; i < 20; ++i)
     bolas.add(newNB());
   frameRate(60);
 }
@@ -27,22 +27,22 @@ void draw() {
   //line(0, height/2, width, height/2);
   //line(width/2, 0, width/2, height);
   strokeWeight(1);
-  slowVoronoi();
+  //slowVoronoi();
   strokeWeight(2);
   stroke(0);
   for (NumberBall nb : bolas)
     nb.draw();
-  /*
+
   NumberBall nba = closest(mouseX, mouseY), nbb = new NumberBall(0, mouseX, mouseY);
-   nbb.draw();
-   float gamma = getAngle(nba.x, nba.y, nbb.x, nbb.y);
-   if (getDistance(nba.x, nba.y, nbb.x, nbb.y) >= 50) {
-   float distance = getDistance(nba.x + cos(gamma) * 25, nba.y + sin(gamma) * 25, nbb.x - cos(gamma) * 25, nbb.y - sin(gamma) * 25);
-   drawArrow(nba.x + cos(gamma) * 25, nba.y + sin(gamma) * 25, distance, gamma);
-   }
-   */
-  save("Voronoi.png");
-  noLoop();
+  nbb.draw();
+  float gamma = getAngle(nba.x, nba.y, nbb.x, nbb.y);
+  if (getDistance(nba.x, nba.y, nbb.x, nbb.y) >= 50) {
+    float distance = getDistance(nba.x + cos(gamma) * 25, nba.y + sin(gamma) * 25, nbb.x - cos(gamma) * 25, nbb.y - sin(gamma) * 25);
+    drawArrow(nba.x + cos(gamma) * 25, nba.y + sin(gamma) * 25, distance, gamma);
+  }
+
+  //save("Voronoi.png");
+  //noLoop();
 }
 
 NumberBall newNB() {
@@ -91,7 +91,7 @@ float getDistance(float x1, float y1, float x2, float y2) {
 void slowVoronoi() {
   for (int x = 0; x < width; x += 1) {
     for (int y = 0; y < height; y +=1) {
-      NumberBall nb = closest(x, y); //<>//
+      NumberBall nb = closest(x, y);
       if (nb == null)
         continue;
       stroke(nb.r, nb.g, nb.b);

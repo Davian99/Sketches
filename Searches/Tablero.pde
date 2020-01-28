@@ -31,33 +31,47 @@ public class Tablero {
 
   public void draw() {
     for (Square s : listaS) {
-      if(s == null || !s.change)
+      if (s == null || !s.change)
         continue;
       s.draw(x, y);
     }
   }
 
   public int getSquareInd(float px, float py) {
-    if(px < 0 || py < 0 || px >= width || py >= height)
+    if (px < 0 || py < 0 || px >= width || py >= height)
       return -1;
     float casX = px / x, casY = py / y;
     int ind = alto * (int)(casX) + (int)(casY);
-    
+
     return ind;
   }
 
   public void inicioSquare(float px, float py) {
     int ind = getSquareInd(px, py);
     listaS[ind].modify(4);
-    if(inicioAct != -1)
+    if (inicioAct != -1)
       listaS[inicioAct].modify(1);
     inicioAct = ind;
   }
-  
+
+  public void inicioSquare(int ind) {
+    listaS[ind].modify(4);
+    if (inicioAct != -1)
+      listaS[inicioAct].modify(1);
+    inicioAct = ind;
+  }
+
   public void finSquare(float px, float py) {
     int ind = getSquareInd(px, py);
     listaS[ind].modify(3);
-    if(finAct != -1)
+    if (finAct != -1)
+      listaS[finAct].modify(1);
+    finAct = ind;
+  }
+
+  public void finSquare(int ind) {
+    listaS[ind].modify(3);
+    if (finAct != -1)
       listaS[finAct].modify(1);
     finAct = ind;
   }
