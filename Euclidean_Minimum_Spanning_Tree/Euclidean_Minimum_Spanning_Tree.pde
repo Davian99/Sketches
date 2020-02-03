@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 final int sizex = 800, sizey = 800;
-final int tam = 10000;
+final int tam = 100;
 Random rand;
 ArrayList<Par> arr;
 ArrayList<Arista> aristas, arm;
