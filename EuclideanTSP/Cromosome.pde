@@ -63,10 +63,25 @@ public class Cromosome implements Comparable<Cromosome> {
     scale(2/3.0, 2/3.0);
     for (int i = 0; i < np; ++i)
       puntos[i].draw();
+    
+    //Grafo completo
+    /*
+    strokeWeight(0.01);
+    for (int i = 0; i < np; ++i) {
+      for (int j = 0; j < np; ++j) {
+        if(i == j)
+          continue;
+        line(puntos[i].x, puntos[i].y, puntos[j].x, puntos[j].y);
+      }
+    }
+    */
+    strokeWeight(3);
+    stroke(255, 0, 0);
     for (int i = 0; i < np-1; ++i)
       line(puntos[perm[i]].x, puntos[perm[i]].y, puntos[perm[i+1]].x, puntos[perm[i+1]].y);
     line(puntos[perm[np-1]].x, puntos[perm[np-1]].y, puntos[perm[0]].x, puntos[perm[0]].y);
-
+    stroke(0);
+    strokeWeight(1);
     scale(3.0/2, 3.0/2);
     text("BEST EVER WITH FITNESS OF: " + Math.round(this.fitness * 1000) / 1000.0, 5, 20);
     translate(-mx * 4, 0);

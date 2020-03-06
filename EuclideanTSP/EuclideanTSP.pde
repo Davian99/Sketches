@@ -5,7 +5,7 @@ final int init = 10000;
 final int ax = 900, ay = 900, mx = 200, my = 200;
 final int npintar = 12;
 final double pCross = 0.7, pMut = 0.05;
-final int rnp = 70;
+final int rnp = 30;
 
 boolean running;
 boolean show;
