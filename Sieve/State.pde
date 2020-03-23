@@ -1,0 +1,6 @@
+enum State{
+  ERROR,
+  UNDETERMINED,
+  PRIME,
+  COMPOS
+}

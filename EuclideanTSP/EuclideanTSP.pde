@@ -7,7 +7,7 @@ final int npintar = 12;
 final double pCross = 0.7, pMut = 0.05;
 final int rnp = 30;
 
-boolean running;
+boolean running;  
 boolean show;
 
 int indice, gen, lastbest;
